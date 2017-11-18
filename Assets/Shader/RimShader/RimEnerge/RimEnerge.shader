@@ -1,4 +1,4 @@
-﻿Shader "Custom/RimEnerge" {
+﻿Shader "Custom/Rim/RimEnerge" {
 	Properties
     {
         _Color("Main Color",Color) = (0.6,0.6,0.6,1)
