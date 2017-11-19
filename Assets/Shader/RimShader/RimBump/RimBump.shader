@@ -35,5 +35,5 @@ Shader "Custom/Rim//RimBump" {
 		}
 		ENDCG
 		}
-			FallBack "Specular"
+			FallBack "Diffuse"
 }
