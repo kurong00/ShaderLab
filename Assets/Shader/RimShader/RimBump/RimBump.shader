@@ -7,7 +7,7 @@ Shader "Custom/Rim//RimBump" {
 		_RimPower("Rim Power", Range(0.5,8.0)) = 2.0
 	}
 		SubShader{
-			Tags { "RenderType" = "Opaque" }
+			Tags { "RenderType" = "Opaque"  }
 			LOD 400
 
 		CGPROGRAM
@@ -35,5 +35,5 @@ Shader "Custom/Rim//RimBump" {
 		}
 		ENDCG
 		}
-			FallBack "Diffuse"
+		FallBack "Diffuse"
 }
