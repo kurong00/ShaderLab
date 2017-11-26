@@ -8,23 +8,17 @@
 
     SubShader
     {
-        Tags{"RenderType"="Transparent" }     
+        Tags{ "RenderType"="Transparent" }    
+		ZWrite Off 
         LOD 200         
 
         Pass
         {
-            Tags{"LightMode"="ForwardBase"}
-
-            Cull back
             Blend SrcAlpha OneMinusSrcAlpha 
-            ZWrite OFF
-
             CGPROGRAM
 
             #pragma vertex vert
-            #pragma fragment frag           
-            #include "unitycg.cginc"
-            #include "unitylightingcommon.cginc"
+            #pragma fragment frag      
 
             struct a2v
             {
@@ -75,6 +69,5 @@
             ENDCG
         }
     }
-    // 如果需要阴影在此回滚 不需要注释掉即可
     Fallback "Diffuse"
 }
