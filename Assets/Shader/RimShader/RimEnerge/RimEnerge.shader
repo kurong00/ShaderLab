@@ -13,13 +13,12 @@
 			"IgnoreProjector"="True"
 			"RenderType"="Transparent" }    
 		ZWrite Off 
+		Blend SrcAlpha OneMinusSrcAlpha 
         LOD 200         
 
         Pass
         {
-            Blend SrcAlpha OneMinusSrcAlpha 
             CGPROGRAM
-
             #pragma vertex vert
             #pragma fragment frag      
 
@@ -43,29 +42,20 @@
             v2f vert( a2v i )
             {
                 v2f o;
-                // 转化顶点位置
                 o.pos = UnityObjectToClipPos(i.vertex);
-                // 获取世界空间法线向量
                 o.normalDir = mul(float4(i.normal,0),unity_WorldToObject).xyz;
-                // 获取世界坐标系顶点位置
                 o.worldPos = mul(unity_ObjectToWorld,i.vertex);
                 return o;
             }
 
             fixed4 frag( v2f v ):COLOR
             {
-                // 法线标准化
                 float3 normal = normalize(v.normalDir);
-                // 视角方向标准化
                 float3 viewDir = normalize(_WorldSpaceCameraPos.xyz - v.worldPos.xyz);
-                // 点积
                 float NdotV = saturate(dot(normal,viewDir));
-                // 漫反射
                 fixed3 diffuse = NdotV *_Color + UNITY_LIGHTMODEL_AMBIENT.rgb;
                 float alpha =  1 -  NdotV;      
-                // 边缘色
                 fixed3 rim = _RimColor *alpha;  
-                // 混合输出
                 return fixed4(diffuse + rim ,alpha * (1-_AlphaRange)+_AlphaRange);
             }
 
