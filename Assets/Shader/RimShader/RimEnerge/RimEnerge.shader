@@ -8,7 +8,10 @@
 
     SubShader
     {
-        Tags{ "RenderType"="Transparent" }    
+        Tags{ 
+			"Queue"="Transparent"
+			"IgnoreProjector"="True"
+			"RenderType"="Transparent" }    
 		ZWrite Off 
         LOD 200         
 
