@@ -20,7 +20,8 @@
         {
             CGPROGRAM
             #pragma vertex vert
-            #pragma fragment frag      
+            #pragma fragment frag
+			#include "Lighting.cginc"      
 
             struct a2v
             {
@@ -31,7 +32,7 @@
             struct v2f
             {
                 float4 pos : SV_POSITION;
-                float3 normalDir : Texcoord0;
+                float3 normalDir : TEXCOORD0;
                 float3 worldPos : TEXCOORD1;
             };
 
@@ -39,12 +40,12 @@
             float _AlphaRange;
             fixed4 _RimColor;
 
-            v2f vert( a2v i )
+            v2f vert( a2v v )
             {
                 v2f o;
-                o.pos = UnityObjectToClipPos(i.vertex);
-                o.normalDir = mul(float4(i.normal,0),unity_WorldToObject).xyz;
-                o.worldPos = mul(unity_ObjectToWorld,i.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex) ;
+                o.normalDir = UnityObjectToWorldNormal(v.normal); 
+                o.worldPos = mul(unity_ObjectToWorld,v.vertex).xyz;
                 return o;
             }
 
@@ -52,13 +53,11 @@
             {
                 float3 normal = normalize(v.normalDir);
                 float3 viewDir = normalize(_WorldSpaceCameraPos.xyz - v.worldPos.xyz);
-                float NdotV = saturate(dot(normal,viewDir));
-                fixed3 diffuse = NdotV *_Color + UNITY_LIGHTMODEL_AMBIENT.rgb;
-                float alpha =  1 -  NdotV;      
-                fixed3 rim = _RimColor *alpha;  
-                return fixed4(diffuse + rim ,alpha * (1-_AlphaRange)+_AlphaRange);
+                float normalDotViewDir = saturate(dot(normal,viewDir));
+                fixed3 rim = _RimColor * (1 - normalDotViewDir);
+				fixed3 diffuse = normalDotViewDir *_Color;  
+                return fixed4(diffuse + rim ,(1 - normalDotViewDir) * (1 - _AlphaRange) + _AlphaRange);
             }
-
             ENDCG
         }
     }
