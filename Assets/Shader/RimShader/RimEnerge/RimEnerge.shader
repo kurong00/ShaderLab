@@ -52,7 +52,7 @@
             fixed4 frag( v2f v ):COLOR
             {
                 float3 normal = normalize(v.normalDir);
-                float3 viewDir = normalize(_WorldSpaceCameraPos.xyz - v.worldPos.xyz);
+                float3 viewDir = normalize(_WorldSpaceCameraPos - v.worldPos);
                 float normalDotViewDir = saturate(dot(normal,viewDir));
                 fixed3 rim = _RimColor * (1 - normalDotViewDir);
 				fixed3 diffuse = normalDotViewDir *_Color;  
