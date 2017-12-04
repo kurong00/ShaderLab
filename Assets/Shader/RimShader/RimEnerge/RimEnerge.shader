@@ -54,9 +54,8 @@
                 float3 normal = normalize(v.normalDir);
                 float3 viewDir = normalize(_WorldSpaceCameraPos - v.worldPos);
                 float normalDotViewDir = saturate(dot(normal,viewDir));
-                fixed3 rim = _RimColor * (1 - normalDotViewDir);
 				fixed3 diffuse = normalDotViewDir *_Color;  
-                return fixed4(diffuse + rim ,(1 - normalDotViewDir) * (1 - _AlphaRange) + _AlphaRange);
+                return fixed4(diffuse + _RimColor ,(1 - normalDotViewDir) * (1 - _AlphaRange) + _AlphaRange);
             }
             ENDCG
         }
