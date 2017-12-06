@@ -23,7 +23,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _OutlineFactor: 0.012
+    - _OutlineFactor: 0.018
     m_Colors:
     - _Diffuse: {r: 0.30709344, g: 0.4064223, b: 0.52205884, a: 1}
-    - _OutlineCol: {r: 0.52205884, g: 0.52205884, b: 0.52205884, a: 1}
+    - _OutlineCol: {r: 1, g: 1, b: 1, a: 1}
