@@ -5,17 +5,12 @@
 		_OutlineFactor("OutlineFactor", Range(0,1)) = 0.1
 		_MainTex("Base 2D", 2D) = "white"{}
 	}
-
-	//子着色器	
 	SubShader
 	{
-		
 		//描边使用两个Pass，第一个pass沿法线挤出一点，只输出描边的颜色
 		Pass
 		{
-			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
 			Cull Front
-			
 			CGPROGRAM
 			#include "UnityCG.cginc"
 			fixed4 _OutlineCol;
