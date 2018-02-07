@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: lighting
-  m_Shader: {fileID: 4800000, guid: 7f2945f2440a9144abebf2a1f6f22398, type: 3}
+  m_Name: lighting2
+  m_Shader: {fileID: 4800000, guid: af001b341e4c44f40aa0575299cc4d88, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -24,7 +24,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Factor: 0
-    - _OutlineFactor: 0.039
+    - _OutlineFactor: 0.048
     m_Colors:
-    - _Diffuse: {r: 0.30709344, g: 0.4064223, b: 0.52205884, a: 1}
+    - _Diffuse: {r: 0.24313727, g: 0.31764707, b: 0.3921569, a: 1}
     - _OutlineCol: {r: 1, g: 1, b: 1, a: 1}
