@@ -24,7 +24,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Factor: 0
-    - _OutlineFactor: 0.014
+    - _OutlineFactor: 0.046
     m_Colors:
     - _Diffuse: {r: 0.30709344, g: 0.4064223, b: 0.52205884, a: 1}
+    - _MainColor: {r: 0.5513084, g: 0.6473045, b: 0.72794116, a: 1}
     - _OutlineCol: {r: 1, g: 1, b: 1, a: 1}
