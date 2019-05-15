@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: lighting
-  m_Shader: {fileID: 4800000, guid: 7f2945f2440a9144abebf2a1f6f22398, type: 3}
+  m_Name: Kurong_Rim_RimLightingOpaque2
+  m_Shader: {fileID: 4800000, guid: 833c1468818911a42accc3fb978286ee, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,14 +19,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Factor: 0
-    - _OutlineFactor: 0.011
+    - _RimPower: 1.56
     m_Colors:
-    - _Diffuse: {r: 0.30709344, g: 0.4064223, b: 0.52205884, a: 1}
-    - _MainColor: {r: 0.5513084, g: 0.6473045, b: 0.72794116, a: 1}
-    - _OutlineCol: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.31543443, g: 0.11801351, b: 0.49056602, a: 1}
+    - _RimColor: {r: 0.53333336, g: 0.93725497, b: 0.9294118, a: 0}
