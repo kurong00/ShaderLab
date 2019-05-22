@@ -1,4 +1,4 @@
-﻿Shader "Kurong/Outline/Outline"
+﻿Shader "Kurong/NPR/Outline"
 {
     Properties
     {

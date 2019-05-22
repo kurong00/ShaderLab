@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kurong_Outline_Outline
+  m_Name: Kurong_NPR_Outline
   m_Shader: {fileID: 4800000, guid: 57285eb7d81fd3547a4fc553b146288f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
