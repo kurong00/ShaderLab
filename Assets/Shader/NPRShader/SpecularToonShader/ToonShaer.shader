@@ -74,7 +74,7 @@
                 float rimIntensity = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimDot);
                 float4 rim = rimIntensity * _RimColor;
                 float4 sample = tex2D(_MainTex, v.uv);
-                return _Color * sample * (_AmbientColor + light + specular + rim);
+                return _Color * (_AmbientColor + light + specular + rim);
             }
             ENDCG
         }

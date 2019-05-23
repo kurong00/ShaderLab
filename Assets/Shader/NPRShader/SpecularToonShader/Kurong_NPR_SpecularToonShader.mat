@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kurong_NPR_ToonShaer
-  m_Shader: {fileID: 4800000, guid: 565f610d389e7574188426d4c5547bc7, type: 3}
+  m_Name: Kurong_NPR_SpecularToonShader
+  m_Shader: {fileID: 4800000, guid: 713325e5b02f8f941bedc170c1cef707, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -23,13 +23,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Glossiness: 11.15
-    - _Metallic: 0
-    - _RimAmount: 0.633
-    - _RimThreshold: 0.626
+    m_Floats: []
     m_Colors:
-    - _AmbientColor: {r: 0.2269491, g: 0.6415094, b: 0.5933047, a: 1}
-    - _Color: {r: 0.16220188, g: 0.700415, b: 0.764151, a: 1}
-    - _RimColor: {r: 0.024875412, g: 0.039412465, b: 0.4056604, a: 1}
-    - _SpecularColor: {r: 6.860691, g: 6.860691, b: 6.860691, a: 1}
+    - _Color: {r: 0.3443396, g: 0.631846, b: 1, a: 1}
