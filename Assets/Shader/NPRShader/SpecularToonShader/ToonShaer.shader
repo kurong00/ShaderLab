@@ -62,7 +62,7 @@
             {
                 float3 normal = normalize(v.worldNormal);
                 float dotL = dot(normal,_WorldSpaceLightPos0);
-                float lightIntensity = smoothstep(0, 0.01, dotL);;
+                float lightIntensity = smoothstep(0, 0.01, dotL);
                 float4 light = lightIntensity * _LightColor0;
                 float3 viewDir = normalize(v.viewDir);
                 float3 halfVector = normalize(_WorldSpaceLightPos0 + viewDir);
