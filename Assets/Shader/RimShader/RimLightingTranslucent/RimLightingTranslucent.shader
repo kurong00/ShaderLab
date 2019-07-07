@@ -3,24 +3,22 @@
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
-		_AlphaRange("Alpha Range",Range(0,1)) = 0
-		_RimColor("Rim Color",Color) = (1,1,1,1)
+        _AlphaRange("Alpha Range",Range(0,1)) = 0
+        _RimColor("Rim Color",Color) = (1,1,1,1)
     }
     SubShader
     {
         Pass
         {
-			Tags { "RenderType" = "Opaque" "Queue" = "Transparent" "RenderType" = "Transparent"}
-			LOD 200
-			ZWrite Off
-			Blend SrcAlpha OneMinusSrcAlpha
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "IngoreProject" = "True"}
+            LOD 200
+            ZWrite Off
+            Blend SrcAlpha OneMinusSrcAlpha
 
             CGPROGRAM
 
             #pragma vertex vert
-
             #pragma fragment frag
-
             #include "UnityCG.cginc"
 
             sampler2D _NormalMap;
