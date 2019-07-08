@@ -1,4 +1,4 @@
-﻿Shader "Custom/Sketch"
+﻿Shader "Kurong/NPR/Sketch"
 {
     Properties
     {
@@ -24,6 +24,7 @@
             #include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			#include "AutoLight.cginc"
+			#include "UnityShaderVariables.cginc"
 
             fixed4 _Color;
             float _TileFactor;
@@ -34,7 +35,7 @@
             sampler2D _Hatch4;
             sampler2D _Hatch5;
 
-            struct a2f {
+            struct a2v {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
                 float4 texcoord : TEXCOORD0;
@@ -50,7 +51,7 @@
                 SHADOW_COORDS(4)
             };
 
-            v2f vert(a2f v){
+            v2f vert(a2v v){
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = v.texcoord.xy * _TileFactor;
@@ -60,7 +61,9 @@
                 o.hatchWeight1 = fixed3(0,0,0);
                 o.hatchWeight2 = fixed3(0,0,0);
                 float hatchFactor = diff * 7.0;
-                if(hatchFactor > 5.0) o.hatchWeight1.x = hatchFactor - 5.0;
+                //if (hatchFactor > 6.0) {}
+                if(hatchFactor > 5.0) 
+                    o.hatchWeight1.x = hatchFactor - 5.0;
                 else if(hatchFactor > 4.0) {
                     o.hatchWeight1.x = hatchFactor - 4.0;
                     o.hatchWeight1.y = 1.0 - o.hatchWeight1.x;
