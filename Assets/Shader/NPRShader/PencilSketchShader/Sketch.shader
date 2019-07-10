@@ -10,11 +10,44 @@
         _Hatch3 ("_Hatch3", 2D) = "white" {}
         _Hatch4 ("_Hatch4", 2D) = "white" {}
         _Hatch5 ("_Hatch5", 2D) = "white" {}
+
+        _OutlineRange ("Outline Range", Range(0,0.5)) = 0.1
+		_OutlineColor("Outline Color", Color) = (1,1,1,1)
     }
     SubShader
     {
         Tags { "RenderType" = "Opaque" "Queue" = "Geometry" "LightMode" = "ForwardBase" }
         LOD 200
+        Pass
+        {
+            ZWrite Off
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+            float _OutlineRange;
+            float4 _OutlineColor;
+            struct a2v
+            {
+                float4 vertex : POSITION;
+            };
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+            };
+            v2f vert (a2v v)
+            {
+                v.vertex.xyz += _OutlineRange * normalize(v.vertex.xyz);
+                v2f o;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                return o;
+            }
+            fixed4 frag (v2f v) : Color
+            {
+                return _OutlineColor;
+            }
+            ENDCG
+        }
         Pass
 		{
             CGPROGRAM
@@ -58,9 +91,9 @@
                 fixed3 worldLight = normalize(WorldSpaceLightDir(v.vertex));
                 fixed3 worldNormal = UnityObjectToWorldNormal(v.normal);
                 fixed3 diff = max(0,dot(worldLight,worldNormal));
+                float hatchFactor = diff * 7.0;
                 o.hatchWeight1 = fixed3(0,0,0);
                 o.hatchWeight2 = fixed3(0,0,0);
-                float hatchFactor = diff * 7.0;
                 //if (hatchFactor > 6.0) {}
                 if(hatchFactor > 5.0) 
                     o.hatchWeight1.x = hatchFactor - 5.0;
@@ -103,6 +136,7 @@
             }
             ENDCG
         }
+        
     }
     FallBack "Diffuse"
 }

@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Outline: 0.047
-    - _OutlineRange: 0.09
+    - _OutlineRange: 0.058
     - _OutlineWidth: 0.06
     m_Colors:
     - _Color: {r: 0.66846377, g: 0.41714135, b: 0.8113208, a: 1}
